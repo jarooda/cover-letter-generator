@@ -7,7 +7,11 @@ function Input ({input, setInput}) {
     const newInput = {...input}
     newInput[name] = type === 'checkbox' ? checked : value
     setInput(newInput)
-    localStorage.setItem(name, value)
+    if (type === 'checkbox') {
+      localStorage.setItem(name, checked)
+    } else {
+      localStorage.setItem(name, value)
+    }
   }
 
   const copyTexts = (containerid) => {
