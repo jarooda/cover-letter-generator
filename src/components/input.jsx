@@ -3,9 +3,9 @@ import React from 'react'
 function Input ({input, setInput}) {
 
   const formChange = (e) => {
-    const {name, value} = e.target
+    const {name, value, checked, type} = e.target
     const newInput = {...input}
-    newInput[name] = value
+    newInput[name] = type === 'checkbox' ? checked : value
     setInput(newInput)
     localStorage.setItem(name, value)
   }
@@ -41,6 +41,10 @@ function Input ({input, setInput}) {
       <div className="form-group">
         <label>Applied City</label>
         <input type="text" className="form-control" onChange={formChange} name="appliedCity" value={input.appliedCity}/>
+      </div>
+      <div className="form-group">
+        <label>For Backend ?</label>
+        <input type="checkbox" name="forBackend" className="form-control" checked={input.forBackend} onChange={formChange}/>
       </div>
       <div className="container">
         <div className="row">

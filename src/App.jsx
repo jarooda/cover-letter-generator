@@ -6,7 +6,8 @@ function App() {
     hiringManager: '',
     appliedPosition: '',
     companyName: '',
-    appliedCity: ''
+    appliedCity: '',
+    forBackend: false
   })
 
   useEffect(() => {
@@ -14,7 +15,8 @@ function App() {
       hiringManager: localStorage.getItem('hiringManager') || '',
       appliedPosition: localStorage.getItem('appliedPosition') || '',
       companyName: localStorage.getItem('companyName') || '',
-      appliedCity: localStorage.getItem('appliedCity') || ''
+      appliedCity: localStorage.getItem('appliedCity') || '',
+      forBackend: localStorage.getItem('forBackend') === 'true' ? true : false
     }
 
     setInput(existedInput)
